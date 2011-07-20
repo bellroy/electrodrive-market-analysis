@@ -23,7 +23,7 @@ def fill_ids(sheet)
     #if the column is empty, fill it with the parent's id
     for row in 2..sheet.num_rows do
       puts "Running on [#{row},#{column}]"
-      if (sheet[row,column].empty? and ["SLA","SD"].include?(sheet[row,6]))
+      if (sheet[row,column].empty? and ["SD","SSD"].include?(sheet[row,6]))
         sheet[row,column] = sheet[row-1,column]
       end
     end
@@ -60,8 +60,8 @@ spreadsheet = session.spreadsheet_by_key(config["spreadsheets"]["regions"])
 
 sheet = spreadsheet.worksheets[1]
 
-#fill_coordinates(sheet)
-#save sheet
+fill_coordinates(sheet)
+save sheet
 fill_ids(sheet)
 save sheet
 
