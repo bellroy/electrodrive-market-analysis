@@ -1,0 +1,17 @@
+google:
+  username: "foo.bar"
+  password: "baz123"
+spreadsheets:
+  regions: "0Avf4-2E1x8G3dC16YmJWSEk4S2gwM0NmWVVtR2N1bXc"
+column_mappings:
+  state_id: 1
+  sd_id: 2
+  ssd_id: 3
+  sla_id: 4
+  name: 5
+  parent_id: 6
+  lattitute: 7
+  longitude: 8
+  encoded_polyline: 9
+  encoded_levels: 10
+    
