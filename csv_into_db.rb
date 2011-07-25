@@ -8,30 +8,28 @@ require 'pp'
 mysql = Mysql.init()
 mysql.connect('localhost', "root", "", "electrodrive_analysis")
 
-current_id = nil
+sla_id = nil
 
-#fills down the id of the sla
+mysql.query("TRUNCATE TABLE sla_industry_employees");
+
 Dir.foreach("./state_data") do |file|
-  next if (file == "." or file == "..")
-  puts file
+  next if (file[0] == ".")
   CSV.foreach("./state_data/#{file}") do |row|
-    puts pp(row)
-  #   puts "current_id = #{current_id}"
-  #   if row[0].nil?
-  #     break if (current_id == "Total")
-  #     next if (current_id == "sla_id")
-  #     puts "Filling"
-  #     row[0] = current_id
-  #   else
-  #     puts "Setting new ID"
-  #     current_id = row[0]
-  #   end
-  # 
-  #   if (row[1].length == 3)
-  #     row[1] = "0"+row[1]
-  #   end
-  # 
-  #   mysql.query("INSERT INTO sla_industry_employees (sla_id, industry_class_id, employees) values('#{row[0]}','#{row[1]}','#{row[2]}');")
+    next unless (row.size == 5)
+    #fills down the id of the sla
+  
+    if (row[1].nil?)
+      row[1] = sla_id
+    else
+      sla_id = row[1]
+    end
+  
+    next if (sla_id == "Total" || row[2] == "Total")
+  
+    print "#{file} "
+    pp(row)
+  
+    mysql.query("INSERT INTO sla_industry_employees (sla_id, industry_class_id, employees) values('#{sla_id}','#{row[2]}','#{row[3]}');")
   end
 end
 
