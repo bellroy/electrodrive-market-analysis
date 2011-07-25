@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+
+  <title>Class: Object</title>
+
+  <link rel="stylesheet" href="./rdoc.css" type="text/css" media="screen" />
+
+  <script src="./js/jquery.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/thickbox-compressed.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/quicksearch.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/darkfish.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+<body id="top" class="class">
+
+  <div id="metadata">
+    <div id="home-metadata">
+      <div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="./index.html">Home</a>
+          <a href="./index.html#classes">Classes</a>
+          <a href="./index.html#methods">Methods</a>
+        </h3>
+      </div>
+    </div>
+
+    <div id="file-metadata">
+      <div id="file-list-section" class="section">
+        <h3 class="section-header">In Files</h3>
+        <div class="section-body">
+          <ul>
+          
+            <li><a href="./coordinates_script_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="coordinates_script.rb">coordinates_script.rb</a></li>
+          
+          </ul>
+        </div>
+      </div>
+
+      
+    </div>
+
+    <div id="class-metadata">
+      
+      <!-- Parent Class -->
+      <div id="parent-class-section" class="section">
+        <h3 class="section-header">Parent</h3>
+        
+        <p class="link">BasicObject</p>
+        
+      </div>
+      
+
+      
+
+      
+
+      
+      <!-- Method Quickref -->
+      <div id="method-list-section" class="section">
+        <h3 class="section-header">Methods</h3>
+        <ul class="link-list">
+          
+          <li><a href="#method-i-fill_coordinates">#fill_coordinates</a></li>
+          
+          <li><a href="#method-i-fill_ids">#fill_ids</a></li>
+          
+          <li><a href="#method-i-lookup_data">#lookup_data</a></li>
+          
+          <li><a href="#method-i-save">#save</a></li>
+          
+        </ul>
+      </div>
+      
+
+      
+    </div>
+
+    <div id="project-metadata">
+      
+      
+      <div id="fileindex-section" class="section project-section">
+        <h3 class="section-header">Files</h3>
+        <ul>
+        
+          <li class="file"><a href="./Gemfile.html">Gemfile</a></li>
+        
+        </ul>
+      </div>
+      
+
+      <div id="classindex-section" class="section project-section">
+        <h3 class="section-header">Class/Module Index
+          <span class="search-toggle"><img src="./images/find.png"
+            height="16" width="16" alt="[+]"
+            title="show/hide quicksearch" /></span></h3>
+        <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+        <fieldset>
+          <legend>Quicksearch</legend>
+          <input type="text" name="quicksearch" value=""
+            class="quicksearch-field" />
+        </fieldset>
+        </form>
+
+        <ul class="link-list">
+        
+          <li><a href="./Object.html">Object</a></li>
+        
+        </ul>
+        <div id="no-class-search-results" style="display: none;">No matching classes.</div>
+      </div>
+
+      
+    </div>
+  </div>
+
+  <div id="documentation">
+    <h1 class="class">Object</h1>
+
+    <div id="description" class="description">
+      
+    </div><!-- description -->
+
+    
+    <div id="5Buntitled-5D" class="documentation-section">
+      
+
+      
+
+      
+
+      
+
+      <!-- Methods -->
+      
+      <div id="public-instance-method-details" class="method-section section">
+        <h3 class="section-header">Public Instance Methods</h3>
+
+      
+        <div id="fill_coordinates-method" class="method-detail ">
+          <a name="method-i-fill_coordinates"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">fill_coordinates</span><span
+              class="method-args">(sheet)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="fill_coordinates-source">
+<pre>
+<span class="ruby-comment"># File coordinates_script.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">fill_coordinates</span>(<span class="ruby-identifier">sheet</span>)
+  <span class="ruby-keyword">for</span> <span class="ruby-identifier">row</span> <span class="ruby-keyword">in</span> <span class="ruby-value">2</span><span class="ruby-operator">..</span><span class="ruby-identifier">sheet</span>.<span class="ruby-identifier">num_rows</span> <span class="ruby-keyword">do</span> 
+    <span class="ruby-keyword">if</span> (<span class="ruby-identifier">sheet</span>[<span class="ruby-identifier">row</span>,<span class="ruby-value">6</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&quot;SLA&quot;</span>)
+      <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Setting line #{row} of #{sheet.num_rows}&quot;</span>
+      <span class="ruby-identifier">data</span> = <span class="ruby-identifier">lookup_data</span>(<span class="ruby-string">&quot;sla&quot;</span>, <span class="ruby-identifier">sheet</span>[<span class="ruby-identifier">row</span>,<span class="ruby-value">4</span>].<span class="ruby-identifier">to_i</span>)
+      <span class="ruby-keyword">if</span> (<span class="ruby-identifier">data</span>)
+        <span class="ruby-identifier">sheet</span>[<span class="ruby-identifier">row</span>,<span class="ruby-value">7</span>] = <span class="ruby-identifier">data</span>[<span class="ruby-value">0</span>][<span class="ruby-string">&quot;marks&quot;</span>][<span class="ruby-value">0</span>][<span class="ruby-string">&quot;cenLat&quot;</span>]
+        <span class="ruby-identifier">sheet</span>[<span class="ruby-identifier">row</span>,<span class="ruby-value">8</span>] = <span class="ruby-identifier">data</span>[<span class="ruby-value">0</span>][<span class="ruby-string">&quot;marks&quot;</span>][<span class="ruby-value">0</span>][<span class="ruby-string">&quot;cenLng&quot;</span>]
+        <span class="ruby-identifier">sheet</span>[<span class="ruby-identifier">row</span>,<span class="ruby-value">9</span>]= <span class="ruby-identifier">data</span>[<span class="ruby-value">0</span>][<span class="ruby-string">&quot;marks&quot;</span>][<span class="ruby-value">0</span>][<span class="ruby-string">&quot;polylines&quot;</span>][<span class="ruby-value">0</span>][<span class="ruby-string">&quot;points&quot;</span>]
+        <span class="ruby-identifier">sheet</span>[<span class="ruby-identifier">row</span>,<span class="ruby-value">10</span>]= <span class="ruby-identifier">data</span>[<span class="ruby-value">0</span>][<span class="ruby-string">&quot;marks&quot;</span>][<span class="ruby-value">0</span>][<span class="ruby-string">&quot;polylines&quot;</span>][<span class="ruby-value">0</span>][<span class="ruby-string">&quot;levels&quot;</span>]
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- fill_coordinates-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- fill_coordinates-method -->
+
+      
+        <div id="fill_ids-method" class="method-detail ">
+          <a name="method-i-fill_ids"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">fill_ids</span><span
+              class="method-args">(sheet)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="fill_ids-source">
+<pre>
+<span class="ruby-comment"># File coordinates_script.rb, line 20</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">fill_ids</span>(<span class="ruby-identifier">sheet</span>)
+  [<span class="ruby-value">2</span>,<span class="ruby-value">3</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">column</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Running on column #{column}&quot;</span>
+    <span class="ruby-comment">#if the column is empty, fill it with the parent's id</span>
+    <span class="ruby-keyword">for</span> <span class="ruby-identifier">row</span> <span class="ruby-keyword">in</span> <span class="ruby-value">2</span><span class="ruby-operator">..</span><span class="ruby-identifier">sheet</span>.<span class="ruby-identifier">num_rows</span> <span class="ruby-keyword">do</span>
+      <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Running on [#{row},#{column}]&quot;</span>
+      <span class="ruby-keyword">if</span> (<span class="ruby-identifier">sheet</span>[<span class="ruby-identifier">row</span>,<span class="ruby-identifier">column</span>].<span class="ruby-identifier">empty?</span> <span class="ruby-keyword">and</span> [<span class="ruby-string">&quot;SD&quot;</span>,<span class="ruby-string">&quot;SSD&quot;</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">sheet</span>[<span class="ruby-identifier">row</span>,<span class="ruby-value">6</span>]))
+        <span class="ruby-identifier">sheet</span>[<span class="ruby-identifier">row</span>,<span class="ruby-identifier">column</span>] = <span class="ruby-identifier">sheet</span>[<span class="ruby-identifier">row</span><span class="ruby-operator">-</span><span class="ruby-value">1</span>,<span class="ruby-identifier">column</span>]
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- fill_ids-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- fill_ids-method -->
+
+      
+        <div id="lookup_data-method" class="method-detail ">
+          <a name="method-i-lookup_data"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">lookup_data</span><span
+              class="method-args">(type,id)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="lookup_data-source">
+<pre>
+<span class="ruby-comment"># File coordinates_script.rb, line 8</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">lookup_data</span>(<span class="ruby-identifier">type</span>,<span class="ruby-identifier">id</span>)
+  <span class="ruby-identifier">endpoint_url</span> = <span class="ruby-node">&quot;http://www.ausstats.abs.gov.au/servlet/GMSearchServlet?openagent&amp;ret=b&amp;rtype=#{type}&amp;key=#{id}&quot;</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">client</span> = <span class="ruby-constant">HTTPClient</span>.<span class="ruby-identifier">new</span>
+    <span class="ruby-identifier">result</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">get_content</span>(<span class="ruby-identifier">endpoint_url</span>);
+    <span class="ruby-identifier">o</span> = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">result</span>);
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">JSON</span><span class="ruby-operator">::</span><span class="ruby-constant">ParserError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-identifier">e</span>
+    <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- lookup_data-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- lookup_data-method -->
+
+      
+        <div id="save-method" class="method-detail ">
+          <a name="method-i-save"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">save</span><span
+              class="method-args">(sheet)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="save-source">
+<pre>
+<span class="ruby-comment"># File coordinates_script.rb, line 49</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">save</span>(<span class="ruby-identifier">sheet</span>)
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Saving…&quot;</span>
+  <span class="ruby-identifier">sheet</span>.<span class="ruby-identifier">save</span>();
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Done!&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- save-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- save-method -->
+
+      
+      </div><!-- public-instance-method-details -->
+    
+    </div><!-- 5Buntitled-5D -->
+  
+
+  </div><!-- documentation -->
+
+  <div id="validator-badges">
+    <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+    <p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+      Rdoc Generator</a> 2</small>.</p>
+  </div>
+
+</body>
+</html>
+
