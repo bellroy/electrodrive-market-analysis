@@ -1,0 +1,8 @@
+h2. Geographic Information
+
+Spatial regions are based on the Australian Standard Geographic Classification (ASCG). The ASCG uses Statistical Local Areas (SLA) as the smallest unit of spatiality. SLAs don't correspond well to postcode, suburbs or local government areas, although they ABS does provide some ways to move from one unit to another (they call these mappings correspondences).
+
+The "digital boundaries files repository":http://www.abs.gov.au/ausstats/abs@.nsf/DetailsPage/1259.0.30.0022006?OpenDocument is a useful repository of information. However, this format (called a mapinfo file) isn't supported by Tableau or Google Maps in its existing format. As such, I have written a script to transform this format into a format suitable to Tableau and move it into the database where it is easier to work with. The specifications for the mapinfo file format are included in this repo under "specifications":"/specifications/Mapinfo_Mif.pdf". The file is not difficult to parse.
+
+h2. Industry Information
+
